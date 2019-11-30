@@ -1,0 +1,26 @@
+{%extends "base.html"%}
+{%block title%}Homepage{%endblock title%}
+
+{%block content%}
+
+{%if user%}
+<h1>Welcome {{user.name}}</h1>
+{%else%}
+<h1>Sign Up</h1>
+<h4>{{sign_error}}</h4>
+<form action="/signup" method="post">
+    <input type="text" name="user-name" placeholder="Enter your username" required>
+    <input type="password" name="user-password" placeholder="Enter a password" required>
+    <input type="password" name="user-password-confirm" placeholder="Confirm your password" required>
+    <button>Submit</button>
+</form>
+
+<h1>Login</h1>
+<h4>{{login_error}}</h4>
+<form action="/login" method="post">
+    <input type="text" name="user-name" placeholder="Enter your username">
+    <input type="password" name="user-password" placeholder="Enter your password">
+    <button>Submit</button>
+</form>
+{%endif%}
+{%endblock content%}
