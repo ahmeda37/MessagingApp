@@ -1,0 +1,26 @@
+{%extends "base.html"%}
+
+{%block title%}Send Message{%endblock title%}
+
+{%block content%}
+
+<h1>Send Message</h1>
+
+<form action="/send" method="post">
+    <label>To: </label>
+    <input type="text" name="receiver" placeholder="Enter Receiver">
+    <textarea name="message-body" placeholder="Enter your message">
+
+    </textarea>
+    <button>Send</button>
+</form>
+
+<h2>Users: </h2>
+<ul>
+    {%for user in users%}
+        <li>
+            {{user.name}}
+        </li>
+    {%endfor%}
+</ul>
+{%endblock content%}

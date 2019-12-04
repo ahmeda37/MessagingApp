@@ -5,6 +5,12 @@
 
 {%if user%}
 <h1>Welcome {{user.name}}</h1>
+<h2>Inbox</h2>
+    {%for msg in messages%}
+    <p>{{msg.s.name}}</p>
+    <p>{{msg.message}}</p>
+    <button><a href="/delete/{{msg.id}}">Delete</a></button>
+    {%endfor%}
 {%else%}
 <h1>Sign Up</h1>
 <h4>{{sign_error}}</h4>
